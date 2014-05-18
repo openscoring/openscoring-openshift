@@ -1,0 +1,9 @@
+cd $OPENSHIFT_DATA_DIR
+
+mkdir -p .m2/repository
+
+echo -e "<settings><localRepository>$OPENSHIFT_DATA_DIR/.m2/repository</localRepository></settings>" > .m2/settings.xml
+
+cd $OPENSHIFT_REPO_DIR
+
+mvn -s $OPENSHIFT_DATA_DIR/.m2/settings.xml clean package

@@ -1,0 +1,7 @@
+#!/bin/bash
+# The logic to start up your application should be put in this script.
+# The application will work only if it binds to $OPENSHIFT_DIY_IP:$OPENSHIFT_DIY_PORT
+
+cd $OPENSHIFT_REPO_DIR
+
+nohup java -cp "target/lib/*" org.openscoring.server.Main --host $OPENSHIFT_DIY_IP --port $OPENSHIFT_DIY_PORT > ${OPENSHIFT_DIY_LOG_DIR}/openscoring.log 2>&1 &
