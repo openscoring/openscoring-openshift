@@ -22,7 +22,7 @@ By default, the DIY cartridge initializes the Git repository with a dummy Ruby a
 
 The base URL of the application is `http://<app name>-<namespace name>.rhcloud.com`. The installation can be verified by making a GET request to the model list endpoint at `http://<app name>-<namespace name>.rhcloud.com/openscoring/model` (e.g. opening this address in a web browser). Upon success, the response should contain a JSON array of deployed model identifiers.
 
-The application implements full [Openscoring REST API] (https://github.com/jpmml/openscoring). The access to HTTP methods `PUT` and `DELETE` that deal with model deployment and undeployment, respectively, is restricted to users with the "admin" role. The Openscoring application grants this role to all users that originate from the local network.
+The application implements full [Openscoring REST API] (https://github.com/jpmml/openscoring). The access to HTTP methods `PUT` and `DELETE` that deal with model deployment and undeployment, respectively, is only permitted to users with the "admin" role. The Openscoring application grants this role to all users that originate from the local network.
 
 The Openscoring application watches the contents of the auto-deploy directory `pmml` for changes. A model can be deployed by placing a new PMML file into that directory. Conversely, a model can be undeployed by removing an existing PMML file from that directory. In both cases, the changes must be first committed to the local repository and then pushed to the remote repository.
 

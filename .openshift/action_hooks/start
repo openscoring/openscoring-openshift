@@ -4,4 +4,4 @@
 
 cd $OPENSHIFT_REPO_DIR
 
-nohup java -cp "target/lib/*" org.openscoring.server.Main --host $OPENSHIFT_DIY_IP --port $OPENSHIFT_DIY_PORT --deploy-dir "pmml" > ${OPENSHIFT_DIY_LOG_DIR}/openscoring.log 2>&1 &
+nohup java -cp "target/lib/*" org.openscoring.server.Main --host $OPENSHIFT_DIY_IP --port $OPENSHIFT_DIY_PORT --model-dir "pmml" > ${OPENSHIFT_DIY_LOG_DIR}/openscoring.log 2>&1 &
