@@ -6,4 +6,6 @@ echo -e "<settings><localRepository>$OPENSHIFT_DATA_DIR/.m2/repository</localRep
 
 cd $OPENSHIFT_REPO_DIR
 
+echo -e "networkSecurityContextFilter {\n\ttrustedAddresses = [ \"$OPENSHIFT_DIY_IP\" ]\n}" > network.conf
+
 mvn -s $OPENSHIFT_DATA_DIR/.m2/settings.xml clean package
