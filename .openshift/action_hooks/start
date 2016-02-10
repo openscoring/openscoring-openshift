@@ -4,4 +4,6 @@
 
 cd $OPENSHIFT_REPO_DIR
 
-nohup java -Dconfig.file=application.conf -Djava.util.logging.config.file=logging.properties -cp "target/lib/*" org.openscoring.server.Main --host $OPENSHIFT_DIY_IP --port $OPENSHIFT_DIY_PORT --model-dir "pmml" > ${OPENSHIFT_DIY_LOG_DIR}/openscoring.log 2>&1 &
+java -Dconfig.file=application.conf -Djava.util.logging.config.file=logging.properties -cp "target/lib/*" org.openscoring.server.Main --host $OPENSHIFT_DIY_IP --port $OPENSHIFT_DIY_PORT --model-dir "pmml" > ${OPENSHIFT_DIY_LOG_DIR}/openscoring.log 2>&1 &
+echo $! > $OPENSHIFT_DATA_DIR/openscoring.pid
+disown %1
