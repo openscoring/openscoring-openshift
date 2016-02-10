@@ -5,5 +5,5 @@ if [ -z "$(ps -ef | grep "openscoring" | grep -v grep)" ]
 then
     echo "Application is already stopped"
 else
-    kill `ps -ef | grep "openscoring" | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+    kill `ps -ef | grep "openscoring" | grep -v git | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
 fi
