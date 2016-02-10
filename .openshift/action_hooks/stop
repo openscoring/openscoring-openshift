@@ -1,9 +1,12 @@
 #!/bin/bash
 # The logic to stop your application should be put in this script.
 
-if [ -z "$(ps -ef | grep "openscoring" | grep -v grep)" ]
+PID_FILE=$OPENSHIFT_DATA_DIR/openscoring.pid
+
+if [ -f $PID_FILE ]
 then
-    echo "Application is already stopped"
+    kill `cat $PID_FILE` > /dev/null 2>&1
+    rm $PID_FILE
 else
-    kill `ps -ef | grep "openscoring" | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+    echo "No PID file at $PID_FILE"
 fi
